@@ -45,6 +45,7 @@ function verifySearchTree2($root,$left=null,$right=null){
     if(!empty($right) && $right->value <= $root->value){
         return false;
     }
+    //$root->left一定小于$root,$root->right一定大于$root,还有保证左边所有子树的节点值小于root,右边所有子树的节点值大于root
     return verifySearchTree2($root->left,$left,$root) && verifySearchTree2($root->right,$root,$right);
 }
 
