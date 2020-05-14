@@ -1,5 +1,5 @@
 <?php
-require_once "linkNode.php";
+require_once "./data/linkNode.php";
 
 /**
  * 要求O(1)时间复杂度删除单链表中的指定节点
