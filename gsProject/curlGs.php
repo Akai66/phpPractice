@@ -8,10 +8,6 @@
 
 error_reporting(E_ERROR);
 
-require 'vendor/autoload.php';
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-
 //获取用户列表
 class synGhData{
 
@@ -32,10 +28,6 @@ class synGhData{
     const URL_GETREPORTLIST = 'http://szzb-api.shengxunwei.com/api/WeeklyReport/GetWeeklyReportList';
 
     const URL_GETREPORT = 'http://szzb-api.shengxunwei.com/api/WeeklyReport/GetWeeklyReport?';
-
-    const ORI_FILE_PATH = './gshz.xlsx';
-
-    const TARGET_FILE_PATH = './newgshz.xlsx';
 
     static $passUser = array(
         '姜锋',
@@ -69,8 +61,7 @@ class synGhData{
             $this->getUserInfos();
             //获取每个人该周的工时填报数据
             $this->getWeeklyDatas();
-//            echo json_encode($this->userWeeklyDatas,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
-            //同步至excel文件
+            echo json_encode($this->userWeeklyDatas,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 
         }catch (Exception $e){
             echo $e->getMessage();
@@ -230,17 +221,6 @@ class synGhData{
         $result = curl_exec($ch);
         curl_close($ch);
         return $result;
-    }
-
-    function writeToFile(){
-        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader("Xlsx");
-        $spreadsheet = $reader->load(self::ORI_FILE_PATH);
-
-
-
-
-        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet,"Xlsx");
-        $writer->save(self::TARGET_FILE_PATH);
     }
 
 }
