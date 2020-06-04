@@ -10,7 +10,7 @@ function deleteNode(&$head,$target){
    if(!empty($target->next)){
        $next = $target->next;
        $target->value = $next->value;
-       $target->next= $next->next;
+       $target->next = $next->next;
    }elseif($head == $target){
        //链表只有一个节点,删除头结点
        $head = null;
