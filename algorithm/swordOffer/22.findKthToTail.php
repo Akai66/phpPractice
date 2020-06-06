@@ -1,7 +1,7 @@
 <?php
 require_once './data/linkNode.php';
 /**
- * 题目描述:输入一个链表,输出链表的倒数第k个节点
+ * 题目描述:输入一个单链表,输出链表的倒数第k个节点
  */
 
 function findKthToTail($head,$k){
