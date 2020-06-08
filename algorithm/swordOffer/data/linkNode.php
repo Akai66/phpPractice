@@ -16,4 +16,14 @@ class linkNode{
     {
         $this->value = $value;
     }
+    
+    public function printLink(){
+        echo $this->value;
+        $node = $this->next;
+        while($node != null){
+            echo '->' . $node->value;
+            $node = $node->next;
+        }
+        echo "\n";
+    }
 }
