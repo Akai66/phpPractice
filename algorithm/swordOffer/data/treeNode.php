@@ -17,7 +17,7 @@ class treeNode{
      * 层级遍历二叉树
      */
     function levelOrderTraverseTree(){
-        $mq = new myQueue();
+        $mq = new queueNode();
         $mq->push($this);
         while(!$mq->isEmpty()){
             $node = $mq->pop();

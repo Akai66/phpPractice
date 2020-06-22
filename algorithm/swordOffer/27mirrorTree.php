@@ -1,6 +1,6 @@
 <?php
 require_once './data/treeNode.php';
-require_once '../dataStruct/queue/myQueue.php';
+require_once './data/queueNode.php';
 /**
  * 题目描述:输入一棵二叉树,输出它的镜像二叉树
  */
