@@ -51,6 +51,10 @@ function swap(&$arr,$index1,$index2){
 
 //方法二:利用大顶堆容器,适合海量数据处理,不用一次性将所有数据加载到内存,每次读取一个数字,时间复杂度O(n*logk)
 function getleastNumber2($arr,$k){
+    $length = count($arr);
+    if($length <= 0 || $k > $length || $k <= 0 ){
+        throw new Exception('参数错误');
+    }
     $maxHeap = new maxHeap();
     foreach ($arr as $value){
         if($maxHeap->size() < $k){
