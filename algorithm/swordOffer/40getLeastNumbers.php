@@ -1,4 +1,5 @@
 <?php
+require_once './data/maxHeap.php';
 
 /**
  * 题目描述:输入一个数组,获取数组中最小的k个数
@@ -57,14 +58,45 @@ function getleastNumber2($arr,$k){
     }
     $maxHeap = new maxHeap();
     foreach ($arr as $value){
-        if($maxHeap->size() < $k){
-            $maxHeap->insert($value);
+        if($maxHeap->Size() < $k){
+            $maxHeap->push($value);
         }elseif($value < $maxHeap->peek()){
             $maxHeap->pop();
-            $maxHeap->insert($value);
+            $maxHeap->push($value);
         }
     }
+    $result = array();
+    while($maxHeap->Size() > 0){
+        $result[] = $maxHeap->pop();
+    }
+    return $result;
 }
 
 $arr = [4,3,5,8,2,1,1,9];
-var_dump(getLeastNumbers1($arr,4));
+var_dump(getLeastNumbers1($arr,5));
+var_dump(getleastNumber2($arr,5));
+
+
+//$mh = new maxHeap();
+//$mh->push(1);
+//echo $mh->peek() . ' ';
+//$mh->push(4);
+//echo $mh->peek() . ' ';
+//$mh->push(3);
+//echo $mh->peek() . ' ';
+//$mh->push(5);
+//echo $mh->peek() . ' ';
+//echo $mh->pop() . ' ';
+//echo $mh->peek() . ' ';
+//echo $mh->pop() . ' ';
+//echo $mh->peek() . ' ';
+//echo $mh->pop() . ' ';
+//echo $mh->peek() . ' ';
+//$mh->push(-1);
+//echo $mh->peek() . ' ';
+//$mh->push(2);
+//echo $mh->peek() . ' ';
+//echo $mh->pop() . ' ';
+//echo $mh->peek() . ' ';
+//echo $mh->pop() . ' ';
+//echo $mh->peek() . ' ';
