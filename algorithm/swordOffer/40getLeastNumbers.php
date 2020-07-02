@@ -58,7 +58,7 @@ function getleastNumber2($arr,$k){
     }
     $maxHeap = new maxHeap();
     foreach ($arr as $value){
-        if($maxHeap->Size() < $k){
+        if($maxHeap->size() < $k){
             $maxHeap->push($value);
         }elseif($value < $maxHeap->peek()){
             $maxHeap->pop();
@@ -66,7 +66,7 @@ function getleastNumber2($arr,$k){
         }
     }
     $result = array();
-    while($maxHeap->Size() > 0){
+    while($maxHeap->size() > 0){
         $result[] = $maxHeap->pop();
     }
     return $result;
