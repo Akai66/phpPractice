@@ -41,6 +41,7 @@ class synGhData{
         '管理员',
         '吴海波',
         '李文东',
+        '赖辉',
     );
 
     function __construct($token,$startDate){
@@ -122,6 +123,10 @@ class synGhData{
             if(in_array($userName,self::$passUser)){
                 continue;
             }
+            $innerMon = $startMon;
+//            if(in_array($userName,array('李鹏博','王金星','曾志坚'))){
+//                $innerMon++;
+//            }
             $postData = array(
                 'OrderBy' => '',
                 'PagingInfo' => array(
@@ -133,8 +138,8 @@ class synGhData{
                 'Parameters' => array(
                     'startYear' => $startYear,
                     'endYear' => $endYear,
-                    'startMonth' => $startMon,
-                    'endMonth' => $endMon,
+                    'startMonth' => $innerMon,
+                    'endMonth' => $innerMon,
                     'userId' => $userId,
                     'userName' => $userName,
                 ),
