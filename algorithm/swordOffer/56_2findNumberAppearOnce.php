@@ -11,7 +11,7 @@
 //思路二:利用hash表,遍历数组统计每个数字出现的次数,时间复杂度为O(n),空间复杂度O(n)(因为数组的长度为n)
 
 
-//思路三:把所有数字二进制每一位的值相加,被3整除则表示目标数字该位为0,否则为1,时间复杂度为O(n),空间复杂度为O(1) 因为32是一个常数
+//思路三:把所有数字二进制每一位的值相加,被3整除则表示目标数字该位为0,否则为1,时间复杂度为O(n),空间复杂度为O(1) 因为64(跟整数的位数有关系)是一个常数
 function findNumberAppearOnce($arr){
     if(empty($arr)){
         throw new Exception('参数错误');
@@ -19,7 +19,7 @@ function findNumberAppearOnce($arr){
     $bitSum = array();
     for($i=0;$i<count($arr);$i++){
         $bitMask = 1;
-        for($j=31;$j>=0;$j--){
+        for($j=63;$j>=0;$j--){
             $bit = $arr[$i] & $bitMask;
             if(!isset($bitSum[$j])){
                $bitSum[$j] = 0;
@@ -31,7 +31,7 @@ function findNumberAppearOnce($arr){
         }
     }
     $result = 0;
-    for($i=0;$i<=31;$i++){
+    for($i=0;$i<=63;$i++){
         //一定要先左移,再加,否则可能会产生进位
         $result <<= 1;
         $result += $bitSum[$i]%3;
@@ -39,5 +39,5 @@ function findNumberAppearOnce($arr){
     return $result;
 }
 
-$arr = [1,2,4,3,2,1,1,2,3,3];
+$arr = [-5,2,-3,3,2,-5,-5,2,3,3];
 var_dump(findNumberAppearOnce($arr));
