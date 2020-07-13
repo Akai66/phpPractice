@@ -51,7 +51,7 @@ function findNumberWithSum2($arr,$s,&$num1,&$num2){
 
 $arr = [1,2,4,7,11,15];
 var_dump(findNumberWithSum1($arr,19,$num1,$num2),$num1,$num2);
-var_dump(findNumberWithSum2($arr,19,$num1,$num2),$num1,$num2);
+var_dump(findNumberWithSum2($arr,19,$num3,$num4),$num3,$num4);
 
 
 
