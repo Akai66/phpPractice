@@ -19,3 +19,17 @@ function addNew($num1,$num2){
 }
 
 var_dump(addNew(14,18));
+
+//不用新变量交换两个变量的值
+function swap1(&$a,&$b){
+    $a = $a+$b;
+    $b = $a-$b;
+    $a = $a-$b;
+}
+
+function swap2(&$a,&$b){
+    //相同数字异或的结果都为0,0和数字的异或结果为该数字
+    $a = $a^$b;
+    $b = $a^$b;
+    $a = $a^$b;//此时$b已经被替换为原始的$a,等价于$a^$a^$b
+}
